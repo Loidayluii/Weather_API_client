@@ -1,7 +1,7 @@
 import sys
 import requests
 from PyQt5.QtWidgets import (QApplication, QWidget ,QLabel,
-                             QLineEdit , QPushButton , QVBoxLayout)
+    QLineEdit , QPushButton , QVBoxLayout)
 
 from PyQt5.QtCore import Qt
 
@@ -16,26 +16,62 @@ class WeatherApp(QWidget):
         self.description_label = QLabel("Sunny",self)
         self.initUI()
         
-        def initUI(self):
-            self.setWindowTitle("Weather App")
+def initUI(self):
+    self.setWindowTitle("Weather App")
 
-            vbox = QVBoxLayout();
+    vbox = QVBoxLayout()
         
-            vbox.addWidget(self.city_lable)
-            vbox.addWidget(self.city_input)
-            vbox.addWidget(self.get_weather_button)
-            vbox.addWidget(self.temperature_label)
-            vbox.addWidget(self.emoji_label)
-            vbox.addWidget(self.description_label)
+    vbox.addWidget(self.city_lable)
+    vbox.addWidget(self.city_input)
+    vbox.addWidget(self.get_weather_button)
+    vbox.addWidget(self.temperature_label)
+    vbox.addWidget(self.emoji_label)
+    vbox.addWidget(self.description_label)
 
-        self.setLayout (box)
+    self.setLayout(vbox)
 
-        self.city_label.setAlignment(Qt.AlignCenter)
-        self.city_input.setAlignment(Qt.AlignCenter)
-        self.temperature_label.setAlignment(Qt.AlignCenter)
-        self.emoji_label.setAlignment(Qt.AlignCenter)
-        self.description_label.setAlignment(Qt.AlignCenter)
-        if __name__ == "__main__":
+    self.city_label.setAlignment(Qt.AlignCenter)
+    self.city_input.setAlignment(Qt.AlignCenter)
+    self.temperature_label.setAlignment(Qt.AlignCenter)
+    self.emoji_label.setAlignment(Qt.AlignCenter)
+    self.description_label.setAlignment(Qt.AlignCenter)
+
+    self.city_label.setObjectName("City_label")
+    self.city_input.setObjectName("City_input")
+    self.get_weather_button.setObjectName("get_weather_button")
+    self.temperature_label.setObjectName("temperature_label")
+    self.emoji_label.setObjectName("emoji_label")
+    self.description_label.setObjectName("description_label")
+
+    self.setStyleSheet("""
+        QLabel,QPushButton{
+            font_family :  calibri ;        
+        }               
+        QLabel#city_label{
+             font-size:40px;
+             font-style : italic ;                  
+        }
+        QLineEdit#city_input{
+              font-size : 40px   ;            
+        }
+        QPushButton#get_weather_button{
+               font-size: 30px;
+               font-weight : bold;  
+        }
+        QLabel#temperature_label  {
+                font-size   : 75px ;    
+        }
+        QLabel#emoji_label{
+                 font-size : 100 px;
+                 font-family : Segoe UI emoji ;              
+        }
+        QLabel#description_label{
+                   font-size : 50 px ;  
+        }                     
+    """)
+
+
+    if __name__ == "__main__":
             app = QApplication(sys.argv)
             weather_app = WeatherApp()
             weather_app.show()
