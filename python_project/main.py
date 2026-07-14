@@ -122,7 +122,7 @@ class WeatherApp(QWidget):
             self.display_error(f"Request Error:\n{req_error}")
 
     def display_error(self, message):
-        """Hiển thị thông báo lỗi lên giao diện"""
+        
         self.temperature_label.setText("")
         self.emoji_label.setText("⚠️")
         self.description_label.setText(message)
@@ -139,7 +139,7 @@ class WeatherApp(QWidget):
 
     @staticmethod
     def get_weather_emoji(weather_id):
-        """Trả về Emoji tương ứng với mã thời tiết OpenWeatherMap"""
+       
         if 200 <= weather_id <= 232:
             return "⛈️"
         elif 300 <= weather_id <= 321:
