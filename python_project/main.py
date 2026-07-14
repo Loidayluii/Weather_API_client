@@ -128,7 +128,7 @@ class WeatherApp(QWidget):
         self.description_label.setText(message)
 
     def display_weather(self, data):
-        """Hiển thị dữ liệu thời tiết thu được"""
+        
         temp = data["main"]["temp"]
         weather_id = data["weather"][0]["id"]
         weather_description = data["weather"][0]["description"]
