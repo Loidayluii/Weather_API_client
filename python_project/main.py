@@ -83,13 +83,13 @@ class WeatherApp(QWidget):
 
         try:        
             response = requests.get(url, timeout=5)
-            response.raise_for_status()  # Bắt buộc phải có để ném ra HTTPError khi có lỗi status code
+            response.raise_for_status()  
             data = response.json()
             
             if data.get("cod") == 200:
                 self.display_weather(data)
 
-        # Sửa lại requests.exceptions (có chữ 's')
+     
         except requests.exceptions.HTTPError as http_error:
             status_code = response.status_code
             match status_code:
